@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <title>Men's Fashion - Fashion Fusion</title>
+    <link rel="stylesheet" href="men.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Fashion Fusion</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="women.html">Women</a></li>
+                    <li><a href="men.html">Men</a></li>
+                    <li><a href="boys.html">Boys</a></li>
+                    <li><a href="girls.html">Girls</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Men's Clothing</h2>
+        <section class="product-list">
+
+            <div class="product-item">
+                <img src="1.webp" alt="Causual Printed Shirt">
+                <h3>Causual Printed Shirt</h3>
+                <p class="old-price">Rs. 3,699.00</p>
+                <p class="new-price">Rs. 2,589.00</p>
+                <button class="add">add to cart</button>
+            </div>
+
+            <div class="product-item">
+                <img src="2.webp" alt="Black Polo">
+                <h3>Black Polo</h3>
+                <p class="old-price">Rs. 3,999.00</p>
+                <p class="new-price">Rs. 2,799.00</p>
+                <button class="add">add to cart</button>
+            </div>
+
+            <div class="product-item">
+                <img src="3.webp" alt="Causual Printed Shirt">
+                <h3>Causual Printed Shirt</h3>
+                <p class="old-price">Rs. 3,599.00</p>
+                <p class="new-price">Rs. 2,499.00</p>
+                <button class="add">add to cart</button>
+            </div>
+
+            <div class="product-item">
+                <img src="4.webp" alt="Printed Shirt">
+                <h3>Printed Shirt</h3>
+                <p class="old-price">Rs. 3,799.00</p>
+                <p class="new-price">Rs. 2,699.00</p>
+                <button class="add">add to cart</button>
+            </div>
+
+            <div class="product-item">
+                <img src="8.webp" alt="Graphic Polo">
+                <h3>Graphic Polo</h3>
+                <p class="old-price">Rs. 3,499.00</p>
+                <p class="new-price">Rs. 2,599.00</p>
+                <button class="add">add to cart</button>
+            </div>
+
+            <div class="product-item">
+                <img src="6.webp" alt="MODERNISM GRAPHIC T-SHIRT">
+                <h3>MODERNISM GRAPHIC T-SHIRT</h3>
+                <p class="old-price">Rs. 3,999.00</p>
+                <p class="new-price">Rs. 2,799.00</p>
+                <button class="add">add to cart</button>
+            </div>
+
+            <div class="product-item">
+                <img src="5.webp" alt="DREAM GRAPHIC T-SHIRT">
+                <h3>DREAM GRAPHIC T-SHIRT</h3>
+                <p class="old-price">Rs. 3,899.00</p>
+                <p class="new-price">Rs. 2,689.00</p>
+                <button class="add">add to cart</button>
+            </div>
+
+            <div class="product-item">
+                <img src="7.webp" alt="MESH TANKTOP WITH LOGO">
+                <h3>MESH TANKTOP WITH LOGO</h3>
+                <p class="old-price">Rs. 3,599.00</p>
+                <p class="new-price">Rs. 2,499.00</p>
+                <button class="add">add to cart</button>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Our Mission: To Bring You The Latest Fashion Trends With A Touch Of Elegance And Affordability.</p>
+            <p>Contact us at: +123-456-7890 | info@fashionfusion.com</p>
+            <p>Address: 123 Fashion St, Style City, FC 12345</p>
+        </div>
+    </footer>
+
+    
+    <script>
+        document.querySelectorAll(".add").forEach((button) => {
+            button.addEventListener("click", function () {
+                const product = button.closest(".product-item");
+                const name = product.querySelector("h3").innerText;
+                const price = product.querySelector(".new-price").innerText;
+                const img = product.querySelector("img").getAttribute("src");
+
+                const item = {
+                    name: name,
+                    price: price,
+                    img: img,
+                    quantity: 1
+                };
+
+                // Save to localStorage
+                localStorage.setItem("cartItem", JSON.stringify(item));
+
+                // Redirect to cart page
+                window.location.href = "cart.html";
+            });
+        });
+    </script>
+</body>
+</html>

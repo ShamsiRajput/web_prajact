@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Women's Fashion - Fashion Fusion</title>
+    <link rel="stylesheet" href="women.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>ATTIRE</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="women.html">Women</a></li>
+                    <li><a href="men.html">Men</a></li>
+                    <li><a href="boys.html">Boys</a></li>
+                    <li><a href="girls.html">Girls</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Women's Clothing</h2>
+        <section class="product-list">
+            <div class="product-item">
+                <img src="9.webp" alt="PRINTED SUPER CROPPED BLOUSE">
+                <h3>PRINTED SUPER CROPPED BLOUSE WITH SMOCKING WAIST</h3>
+                <p class="old-price">17,000 PKR</p>
+                <p class="new-price">13,000 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="11.webp" alt="PRINTED SUPER CROPPED BLOUSE">
+                <h3>PRINTED SUPER CROPPED BLOUSE WITH SMOCKING WAIST</h3>
+                <p class="old-price">18,000 PKR</p>
+                <p class="new-price">15,000 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="13.webp" alt="LOVE PRINT BUTTON DOWN SHIRT">
+                <h3>LOVE PRINT BUTTON DOWN SHIRT</h3>
+                <p class="old-price">17,000 PKR</p>
+                <p class="new-price">13,000 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="10.webp" alt="PRINTED BUTTON DOWN CROPPED SHIRT">
+                <h3>PRINTED BUTTON DOWN CROPPED SHIRT</h3>
+                <p class="old-price">24,000 PKR</p>
+                <p class="new-price">18,000 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="12.webp" alt="DENIM SHIRT WITH PATCH POCKETS">
+                <h3>DENIM SHIRT WITH PATCH POCKETS</h3>
+                <p class="old-price">16,000 PKR</p>
+                <p class="new-price">12,000 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="14.webp" alt="RELAX FIT EMBROIDERED BUTTON DOWN SHIRT">
+                <h3>RELAX FIT EMBROIDERED BUTTON DOWN SHIRT</h3>
+                <p class="old-price">14,000 PKR</p>
+                <p class="new-price">11,000 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="15.webp" alt="SUPER CROPPED V-NECK SHIRT">
+                <h3>SUPER CROPPED V-NECK SHIRT WITH KNOTTED HEM</h3>
+                <p class="old-price">10,000 PKR</p>
+                <p class="new-price">7,000 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="16.webp" alt="BASIC POPLIN SHIRT">
+                <h3>BASIC POPLIN SHIRT</h3>
+                <p class="old-price">30,000 PKR</p>
+                <p class="new-price">24,000 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Our Mission: To bring you the latest fashion trends with a touch of elegance and affordability.</p>
+            <p>Contact us at: +123-456-7890 | info@fashionfusion.com</p>
+            <p>Address: 123 Fashion St, Style City, FC 12345</p>
+        </div>
+    </footer>
+
+    
+    <script>
+        document.querySelectorAll(".add").forEach((button) => {
+            button.addEventListener("click", function () {
+                const product = button.closest(".product-item");
+                const name = product.querySelector("h3").innerText;
+                const price = product.querySelector(".new-price").innerText;
+                const img = product.querySelector("img").getAttribute("src");
+
+                const item = {
+                    name: name,
+                    price: price,
+                    img: img,
+                    quantity: 1
+                };
+
+                // Save to localStorage (can be modified to use an array for multiple items)
+                localStorage.setItem("cartItem", JSON.stringify(item));
+
+                // Redirect to cart page
+                window.location.href = "cart.html";
+            });
+        });
+    </script>
+</body>
+</html>

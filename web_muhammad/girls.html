@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Girls' Fashion - ATTIRE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="girls.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>ATTIRE</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="women.html">Women</a></li>
+                    <li><a href="men.html">Men</a></li>
+                    <li><a href="boys.html">Boys</a></li>
+                    <li><a href="girls.html">Girls</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Girls' Clothing</h2>
+        <section class="product-list">
+            <div class="product-item">
+                <img src="25.webp" alt="Girls' Clothing 1">
+                <h3>HALF ZIPPER PATTERN SWEATSHIRT</h3>
+                <p class="old-price">10,000 PKR</p>
+                <p class="new-price">8,000 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="26.webp" alt="Girls' Clothing 2">
+                <h3>OVERSIZED ZIPPER COLOR BLOCK SWEATSHIRT</h3>
+                <p class="old-price">6,000 PKR</p>
+                <p class="new-price">5,000 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="27.webp" alt="Girls' Clothing 3">
+                <h3>POSITIVE ENERGY GRAPHIC HOODIE</h3>
+                <p class="old-price">7,000 PKR</p>
+                <p class="new-price">5,600 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="28.webp" alt="Girls' Clothing 4">
+                <h3>POSITIVE ENERGY GRAPHIC HOODI</h3>
+                <p class="old-price">9,000 PKR</p>
+                <p class="new-price">7,600 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="29.webp" alt="Girls' Clothing 5">
+                <h3>PINK PANTHER GRAPHIC HOODIE</h3>
+                <p class="old-price">5,000 PKR</p>
+                <p class="new-price">4,000 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="30.webp" alt="Girls' Clothing 6">
+                <h3>PINK PANTHER GRAPHIC HOODIE</h3>
+                <p class="old-price">8,000 PKR</p>
+                <p class="new-price">6,400 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="31.webp" alt="Girls' Clothing 7">
+                <h3>LOVE GENERATION VELOUR HOODIE</h3>
+                <p class="old-price">7,000 PKR</p>
+                <p class="new-price">5,600 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+            <div class="product-item">
+                <img src="32.webp" alt="Girls' Clothing 8">
+                <h3>CHEVRON COLOR-BLOCK HOODIE</h3>
+                <p class="old-price">12,000 PKR</p>
+                <p class="new-price">10,000 PKR</p>
+                <button class="add">add to cart</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Our Mission: To bring you the latest fashion trends with a touch of elegance and affordability.</p>
+            <p>Contact us at: +123-456-7890 | info@ATTIRE.com</p>
+            <p>Address: 123 Fashion St, Style City, FC 12345</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.querySelectorAll(".add").forEach((button) => {
+            button.addEventListener("click", function () {
+                const product = button.closest(".product-item");
+                const name = product.querySelector("h3").innerText;
+                const price = product.querySelector(".new-price").innerText;
+                const img = product.querySelector("img").getAttribute("src");
+
+                const item = {
+                    name: name,
+                    price: price,
+                    img: img,
+                    quantity: 1
+                };
+
+                // Save to localStorage
+                localStorage.setItem("cartItem", JSON.stringify(item));
+
+                // Redirect to cart page
+                window.location.href = "cart.html";
+            });
+        });
+    </script>
+</body>
+</html>

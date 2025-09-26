@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title>Cart - ATTIRE</title>
+    <link rel="stylesheet" href="carts.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">ATTIRE</div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="women.html">Women</a>
+            <a href="men.html">Men</a>
+            <a href="boys.html">Boys</a>
+            <a href="girls.html">Girls</a>
+        </nav>
+        <div class="cart-button">
+            <a href="cart.html"><img src="images.png" alt="Cart"> Cart</a>
+        </div>
+    </header>
+    
+    <main class="cart-main">
+        <h2>Your Shopping Cart</h2>
+        <div class="cart-items" id="cart-items-container">
+  <!-- Items will be injected by JavaScript -->
+
+
+            </div>
+            
+                
+            
+         
+        
+        <div class="cart-summary">
+            <h3>Cart Summary</h3>
+            <p>Total Items: <span id="total-items">3</span></p>
+            <p>Total Price: Rs. <span id="total-price">7,887.00</span></p>
+            <button class="checkout-button">Proceed to Checkout</button>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-column">
+            <h3>About Us</h3>
+            <a href="#">About</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Store Location</a>
+            <a href="#">Terms Of Service</a>
+            <a href="#">Refund Policy</a>
+        </div>
+        <div class="footer-column">
+            <h3>Policies</h3>
+            <a href="#">Shipping</a>
+            <a href="#">Return & Exchange</a>
+            <a href="#">Cancellation Policy</a>
+        </div>
+        <div class="footer-column">
+            <h3>Customer Service</h3>
+            <a href="#">FAQ's</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+        <div class="footer-column newsletter">
+            <h3>Newsletter Sign Up</h3>
+            <form>
+                <input type="email" placeholder="Email">
+                <button type="submit">Subscribe</button>
+            </form>
+            <div class="social-icons">
+                <a href="#"><img src="facebook-color-icon-2048x2048-bfly1vxr.png" alt="Facebook"></a>
+                <a href="#"><img src="62-instagram-512.webp" alt="Instagram"></a>
+                <a href="#"><img src="youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.webp" alt="YouTube"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+  const item = JSON.parse(localStorage.getItem("cartItem"));
+  const container = document.getElementById("cart-items-container");
+
+  if (item) {
+    container.innerHTML = `
+      <div class="cart-item">
+        <img src="${item.img}" alt="${item.name}">
+        <div class="cart-item-details">
+          <h3>${item.name}</h3>
+          <p>Price: ${item.price}</p>
+          <p>Quantity: ${item.quantity}</p>
+          <button class="remove-item" onclick="removeItem()">Remove</button>
+        </div>
+      </div>
+    `;
+
+    document.getElementById("total-items").innerText = "1";
+    document.getElementById("total-price").innerText = item.price.replace(/[^\d]/g, '');
+  } else {
+    container.innerHTML = "<p>Your cart is empty.</p>";
+    document.getElementById("total-items").innerText = "0";
+    document.getElementById("total-price").innerText = "0";
+  }
+
+  function removeItem() {
+    localStorage.removeItem("cartItem");
+    location.reload();
+  }
+
+  function CHECKOUT() {
+    if (item) {
+      const confirmCheckout = confirm("Are you sure you want to proceed to checkout?");
+      if (confirmCheckout) {
+        alert("Thank you for your purchase!");
+        localStorage.removeItem("cartItem");
+        location.reload();
+      }
+    } else {
+      alert("Your cart is empty!");
+    }
+  }
+
+  // Attach checkout function to button
+  document.querySelector(".checkout-button").addEventListener("click", CHECKOUT);
+</script>
+
+</html>
